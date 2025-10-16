@@ -1,0 +1,78 @@
+Que-> what is firebase ?
+Ans-> 
+    Firebase is a Backend-as-a-Service (BaaS) platform by Google that helps developers build web and mobile apps quickly without managing servers.
+
+    🔹 Key Features:
+
+    Authentication – user login/signup with email, Google, etc.
+
+    Firestore / Realtime Database – store and sync app data in real time.
+
+    Cloud Storage – store images, videos, and files.
+
+    Hosting – fast and secure web hosting for your apps.
+
+    Cloud Functions – run backend code without managing a server.
+
+    Push Notifications – send messages to users via Firebase Cloud Messaging (FCM).
+
+    👉 In short: Firebase provides ready-to-use backend services so you can focus more on the frontend and app logic, not on managing servers or databases.
+
+1--> for any jsx file created use shortcut ----- rafce hit enter
+
+2--> mount Home page in App.jsx
+
+3--> mount navbar componect in home page
+
+4--> write navbar code and css
+
+5--> mdn refernce mask-image css prop
+
+5--> write hero section in Home page
+
+6--> write TitleCards component and mount it in Home page under hero section
+
+TO SCROLL A HORIZONTAL SCROLL BAR YOU CAN HOLD SHIFT KEY AND DRAP MOUSEWHEEL 
+
+7--> to scroll horizontly we will use useRef and useEffect in TitleCards.jsx
+
+8-> in Home page after hero section create a more-cards section
+
+9--> add footer in Home page
+
+10--> npm i react-router-dom and wrap app component inside brower router and inside App component define routes to different pages
+
+11--> write Login Page
+
+12--> we will update movie information from tmdb api or OMdb api
+    -open themoviedb.org
+    -signup/login on it
+    -
+
+USED TMDBproxyserver
+
+13--> make Player page and mount it to App.jsx
+
+14--> use key field of fetched data in Player.jsx for iframe ie it is youtube video key for trailer
+
+15--> fix nav overlays home screen items when scrolled in Navbar.jsx using useEffect and useRef
+
+16--> use firebase for Authentication
+
+    -sign up/login 
+    -add project
+    -turn off google analytics
+    -create project
+    -build>authentication>enable email/password>save
+    -Firestore db>create db>select nearest location>select test mode>create here store users
+    -project overview>select web>enter app nickname>register app
+    -copy given code in our app in firebase.js to config authentication and db
+    -npm i firebase and also npm i react-firebase-hooks
+
+17--> add firebase.js in src/ also add at the end 
+    1.const auth = getAuth(app);
+    2.const db = getFirestore(app)
+
+18--> create user signup, logout and login function in firebase.js file
+
+19--> npm i react-toastify and import it in App.jsx and wrap it with App, use it in login page

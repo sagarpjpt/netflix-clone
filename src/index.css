@@ -1,0 +1,37 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.01rem;
+}
+
+body{
+  background: black;
+  color: white;
+}
+
+/* For Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  width: 8px;               /* scrollbar width */
+  height: 8px;              /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+  background: #141414;      /* dark background (Netflix black) */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #e50914; /* Netflix red */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #f40612; /* brighter red on hover */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #e50914 #141414;
+}

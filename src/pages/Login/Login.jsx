@@ -36,9 +36,6 @@ const Login = () => {
         src={logo}
         alt=""
         className="login-logo"
-        onClick={() => {
-          navigate("/");
-        }}
       />
       <div className="login-form">
         <h1>{signState}</h1>

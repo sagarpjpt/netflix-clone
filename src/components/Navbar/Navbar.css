@@ -103,7 +103,11 @@
 
 @media screen and (max-width: 500px) {
     .navbar img {
-        height: 20px;
+        height: 25px;
+    }
+
+    .navbar-profile .profile {
+        width: 25px;
     }
 
     .navbar-right {

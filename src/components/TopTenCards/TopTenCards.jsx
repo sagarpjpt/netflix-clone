@@ -14,18 +14,21 @@ const TopTenCards = ({ title }) => {
 
   function handlewheel(e) {
     e.preventDefault();
-    e.currentTarget.scrollLeft += e.deltaY;
+    cardRef.current.scrollLeft += e.deltaY;
   }
 
   useEffect(() => {
     const fetchTopTen = async () => {
       try {
-        const res = await fetch(`${BASE_URL}/movie/top_rated?language=en-US&page=1`, {
-          headers: {
-            accept: "application/json",
-            Authorization: `Bearer ${TMDB_BEARER}`,
-          },
-        });
+        const res = await fetch(
+          "https://api.themoviedb.org/3/discover/movie?region=IN&sort_by=popularity.desc",
+          {
+            headers: {
+              accept: "application/json",
+              Authorization: `Bearer ${TMDB_BEARER}`,
+            },
+          }
+        );
 
         const data = await res.json();
         setMovies(data.results.slice(0, 10)); // Top 10
@@ -49,12 +52,12 @@ const TopTenCards = ({ title }) => {
 
             {/* Poster */}
             <div>
-                <img
-              src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-              alt={movie.title}
-              onClick={() => navigate(`/player/${movie.id}`)}
-            />
-            <p className="movie-title">{movie.original_title}</p>
+              <img
+                src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                alt={movie.title}
+                onClick={() => navigate(`/player/${movie.id}`)}
+              />
+              <p className="movie-title">{movie.original_title}</p>
             </div>
           </div>
         ))}

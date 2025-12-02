@@ -1,46 +1,77 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./TitleCards.css";
-import { useRef } from "react";
 import { Link } from "react-router-dom";
 
-const TitleCards = ({title, category}) => {
-
-  const [apiData, setApiData] = useState([])
-
+const TitleCards = ({ title, category }) => {
+  const [apiData, setApiData] = useState([]);
   const cardsRef = useRef();
 
+  const TMDB_BEARER = import.meta.env.VITE_TMDB_BEARER_TOKEN;
+  const BASE_URL = "https://api.themoviedb.org/3";
+
   const handleWheel = (event) => {
-    event.preventDefault(); // when ever we scroll the mouse wheel on this TitleCard component then it will not scroll vertically
+    event.preventDefault();
     cardsRef.current.scrollLeft += event.deltaY;
   };
 
-  useEffect(() => {
+  // Build correct TMDB endpoint based on category
+  const getEndpoint = () => {
+    switch (category) {
+      case "top-rated":
+        return "/movie/top_rated";
+      case "upcoming":
+        return "/movie/upcoming";
+      case "now-playing":
+        return "/movie/now_playing";
+      case "popular":
+      default:
+        return "/movie/popular";
+    }
+  };
 
+  useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`https://tmdbproxyserver.onrender.com/api/${category}`);
-        const data = await res.json();
+        const endpoint = getEndpoint();
+        const response = await fetch(`${BASE_URL}${endpoint}`, {
+          method: "GET",
+          headers: {
+            accept: "application/json",
+            Authorization: `Bearer ${TMDB_BEARER}`,
+          },
+        });
+
+        const data = await response.json();
         setApiData(data.results);
-        console.log(data)
-      } catch (err) {
-        console.error(err);
+      } catch (error) {
+        console.error("Error fetching TMDB data:", error);
       }
     };
+
     fetchData();
-    cardsRef.current.addEventListener("wheel", handleWheel);
+
+    const cardList = cardsRef.current;
+    cardList.addEventListener("wheel", handleWheel);
+
+    return () => {
+      cardList.removeEventListener("wheel", handleWheel);
+    };
   }, []);
+
   return (
     <div className="title-cards">
-      <h2>{title ? title:"Popular on Netflix"}</h2>
+      <h2>{title ? title : "Popular on Netflix"}</h2>
+
       <div className="card-list" ref={cardsRef}>
-        {apiData.map((card, index) => {
-          return (
-            <Link to={`/player/${card.id}`} key={index} className="card">
-              <img src={`https://tmdbproxyserver.onrender.com/api/poster${card.backdrop_path}`} alt="" />
-              <p>{card.original_title}</p>
-            </Link>
-          );
-        })}
+        {apiData.map((movie) => (
+          <Link to={`/player/${movie.id}`} key={movie.id} className="card">
+            <img
+              src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+              alt={movie.title || movie.name}
+            />
+            <p>{movie.title || movie.name}</p>
+          </Link>
+        ))}
       </div>
     </div>
   );

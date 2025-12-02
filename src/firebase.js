@@ -15,13 +15,13 @@ import { toast } from "react-toastify";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+  apiKey: "AIzaSyCWE32GGp7PPexhF3pWAOxCpCoXdz9_IEU",
+  authDomain: "netflix-clone-f8f15.firebaseapp.com",
+  projectId: "netflix-clone-f8f15",
+  storageBucket: "netflix-clone-f8f15.firebasestorage.app",
+  messagingSenderId: "650150087167",
+  appId: "1:650150087167:web:ae4d93688a9296355abfca",
+  measurementId: "G-YEPCWGDD1S"
 };
 
 // Initialize Firebase

@@ -1,10 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./TopTenCards.css";
 import { useNavigate } from "react-router-dom";
+import { TMDB_BEARER } from "../../tmdb";
 
 const TopTenCards = ({ title }) => {
-  const TMDB_BEARER = import.meta.env.VITE_TMDB_BEARER_TOKEN;
-  const BASE_URL = "https://api.themoviedb.org/3";
 
   const cardRef = useRef();
   const [movies, setMovies] = useState([]);

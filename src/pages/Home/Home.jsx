@@ -7,10 +7,9 @@ import info_icon from "../../assets/info_icon.png";
 import TitleCards from "../../components/TitleCards/TitleCards";
 import { Link } from "react-router-dom";
 import TopTenCards from "../../components/TopTenCards/TopTenCards";
+import { TMDB_BEARER, BASE_URL } from "../../tmdb";
 
 const Home = () => {
-  const TMDB_BEARER = import.meta.env.VITE_TMDB_BEARER_TOKEN;
-  const BASE_URL = "https://api.themoviedb.org/3";
 
   const [heroMovie, setHeroMovie] = useState(null);
 

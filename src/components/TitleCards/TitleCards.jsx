@@ -1,13 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./TitleCards.css";
 import { Link } from "react-router-dom";
+import { TMDB_BEARER, BASE_URL } from "../../tmdb";
 
 const TitleCards = ({ title, category }) => {
   const [apiData, setApiData] = useState([]);
   const cardsRef = useRef();
-
-  const TMDB_BEARER = import.meta.env.VITE_TMDB_BEARER_TOKEN;
-  const BASE_URL = "https://api.themoviedb.org/3";
 
   const handleWheel = (event) => {
     event.preventDefault();

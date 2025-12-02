@@ -2,11 +2,8 @@ import React, { use, useEffect, useRef, useState } from "react";
 import "./Player.css";
 import back_arrow_icon from "../../assets/back_arrow_icon.png";
 import { useNavigate, useParams } from "react-router-dom";
-
+import { TMDB_BEARER, BASE_URL } from "../../tmdb";
 const Player = () => {
-  const TMDB_BEARER =
-    import.meta.env.VITE_TMDB_BEARER_TOKEN;
-  const BASE_URL = "https://api.themoviedb.org/3";
   const { id } = useParams();
   const navigate = useNavigate();
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./TopTenCards.css";
 import { useNavigate } from "react-router-dom";
-import { TMDB_BEARER } from "../../tmdb";
+import { TMDB_BEARER, BASE_URL } from "../../tmdb";
 
 const TopTenCards = ({ title }) => {
 
@@ -20,7 +20,7 @@ const TopTenCards = ({ title }) => {
     const fetchTopTen = async () => {
       try {
         const res = await fetch(
-          "https://api.themoviedb.org/3/discover/movie?region=IN&sort_by=popularity.desc",
+          BASE_URL+"/discover/movie?region=IN&sort_by=popularity.desc",
           {
             headers: {
               accept: "application/json",

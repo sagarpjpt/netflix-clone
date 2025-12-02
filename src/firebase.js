@@ -7,7 +7,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { collection, getFirestore } from "firebase/firestore";
-import { addDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -25,6 +25,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
+console.log("firebase config", firebaseConfig);
 const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
@@ -38,7 +39,7 @@ const signup = async (name, email, password) => {
     const user = res.user;
 
     // add user to db
-    await addDoc(collection(db, "user"), {
+    await setDoc(doc(db, "users", user.uid), {
       uid: user.uid,
       name,
       authProvider: "local",

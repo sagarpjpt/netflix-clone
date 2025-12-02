@@ -15,6 +15,8 @@ const Login = () => {
   const [signState, setSignState] = useState("Sign In");
   const navigate = useNavigate();
 
+  // console.log('name: ', name, ' email: ', email, ' password: ', password);
+
   const user_auth = async (event) => {
     event.preventDefault(); // will not refresh the pg whenever submit the form
     setLoading(true);

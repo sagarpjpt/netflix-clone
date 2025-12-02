@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./TitleCards.css";
-import cards_data from "../../assets/cards/Cards_data";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 
@@ -27,9 +26,7 @@ const TitleCards = ({title, category}) => {
         console.error(err);
       }
     };
-
     fetchData();
-
     cardsRef.current.addEventListener("wheel", handleWheel);
   }, []);
   return (

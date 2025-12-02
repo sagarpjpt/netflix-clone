@@ -2,6 +2,13 @@
     position: relative;
 }
 
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+
 .banner-img{
     width: 100%;
     mask-image: linear-gradient(to right, transparent, black 75%);

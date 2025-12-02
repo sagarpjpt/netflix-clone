@@ -1,0 +1,111 @@
+.topten-section {
+  margin-top: 40px;
+}
+
+.topten-section h2 {
+  font-size: 1.7rem;
+  margin-bottom: 15px;
+}
+
+/* Horizontal scroll */
+.topten-row {
+  display: flex;
+  gap: 55px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 20px;
+}
+
+/* Hide scrollbars */
+.topten-row::-webkit-scrollbar {
+  display: none;
+}
+.topten-row {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Card Container */
+.topten-card {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+/* Rank Number Styling */
+.rank-number {
+  position: absolute;
+  left: -25px;
+  top: 45%;
+  transform: translateY(-50%);
+  font-size: 12rem;
+  font-weight: 900;
+  color: #222;
+  z-index: 1;
+  text-shadow: -3px 0 3px rgba(0, 0, 0, 0.5);
+  line-height: 0.8;
+  pointer-events: none;
+}
+
+/* Poster Styling */
+.topten-card img {
+  margin-left: 3rem;
+  position: relative;
+  width: 240px;
+  height: 150px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid white;
+  z-index: 2;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.movie-title {
+  margin-top: 8px;
+  margin-left: 3rem;
+  font-size: 16px;
+  text-align: center;
+  width: 240px;
+}
+
+.topten-card img:hover {
+  transform: scale(1.05);
+  opacity: 0.95;
+  border: 1px solid white;
+  margin-top: 0.5rem;
+  transition: all 0.2s;
+  border-radius: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .topten-section {
+    padding: 0 ;
+  }
+
+  .topten-section h2{
+    font-size: 1rem;
+  }
+
+  .topten-card {
+    min-width: 140px;
+    height: 200px;
+    margin-right: 1rem;
+  }
+
+  .rank-number {
+    font-size: 9rem;
+    left: -10px;
+  }
+
+  .topten-card img {
+    width: 140px;
+    height: 150px;
+  }
+
+  .movie-title {
+    margin-left: 3rem;
+    width: 140px;
+    font-size: 12px;
+  }
+}

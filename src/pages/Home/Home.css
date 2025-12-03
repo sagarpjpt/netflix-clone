@@ -86,8 +86,17 @@
 }
 
 @media screen and (max-width: 800px) {
+    .hero{
+        height: 40vh;
+    }
+    .banner-img{
+        height: 40vh;
+    }
     .hero-caption {
         padding-left: 4%;
+    }
+    .hero-title {
+        font-size: 2rem;
     }
     .caption-img {
         margin-bottom: 10px;
